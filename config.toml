@@ -1,6 +1,7 @@
 theme = "hugo-tania"
 baseURL = 'https://jikky1618.github.io/Hugo-Blog/'
-languageCode = 'en-us'
+languageCode = 'ja'
+defaultContentLanguage = 'ja'
 title = "Jikky"
 paginate = 6
 
