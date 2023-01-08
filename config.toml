@@ -60,11 +60,14 @@ copyright = "Copyright © 2023 Jikky"
 
 [menu]
 [[menu.header]]
+  name = "Contact"
+  url = "/contact/"
+[[menu.header]]
   name = "Articles"
   url = "/articles/"
 [[menu.header]]
-  name = "Contact"
-  url = "/contact/"
+  name = "Posts"
+  url = "/post/"
 [[menu.footer]]
   name = "RSS"
   url = "/index.xml"
