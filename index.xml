@@ -9,7 +9,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 概要
 &lt;/h2>
-&lt;p>bit全探索とは、$N$ 個のものから **「いくつか選ぶ方法」**を全列挙して探索するアルゴリズムです。通常のforループでは全探索できない $2^N$ 通りを全探索できるようになります。&lt;/p>
+&lt;p>bit全探索とは、$N$ 個のものから「いくつか選ぶ方法」を全列挙して探索するアルゴリズムです。通常のforループでは全探索できない $2^N$ 通りを全探索できるようになります。&lt;/p>
 &lt;p>&lt;strong>「いくつか選ぶ方法」の全列挙&lt;/strong>というのは &lt;strong>$N$ 個の各々について「選ぶ・選ばない」&lt;/strong> を全て列挙するということです。&lt;/p>
 &lt;p>簡潔に言うと $N$ 個の要素を持つ集合 ${0,1,2,\dots,N-1}$ の部分集合の全列挙ができます。&lt;/p>
 &lt;h2 id="例題">
@@ -216,15 +216,15 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;tbody>
 &lt;tr>
 &lt;td>bitのi桁目が1かどうか(i番目を選んだかどうか)&lt;/td>
-&lt;td>if((bit &amp;raquo; i) &amp;amp; 1)&lt;/td>
+&lt;td>&lt;code>if((bit &amp;gt;&amp;gt; i) &amp;amp; 1)&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>bitのi桁目が1ではないかどうか(i番目を選んでいないかどうか)&lt;/td>
-&lt;td>if(!((bit &amp;raquo; i) &amp;amp; 1))&lt;/td>
+&lt;td>&lt;code>if(!((bit &amp;gt;&amp;gt; i) &amp;amp; 1))&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>bitの1の個数(選んだ個数)&lt;/td>
-&lt;td>__builtin_popcount(bit)&lt;/td>
+&lt;td>&lt;code>__builtin_popcount(bit)&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
