@@ -1,1 +1,3 @@
-Here is a example blog.
+こんにちは！じっきーです！
+<br>
+17y/o National Institute of Technology.
