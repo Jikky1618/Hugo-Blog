@@ -2,8 +2,10 @@ theme = "hugo-tania"
 baseURL = 'https://jikky1618.github.io/Hugo-Blog/'
 languageCode = 'ja'
 defaultContentLanguage = 'ja'
-title = "Jikky"
+HasCJKLanguage = true
+title = "Jikky's Blog"
 paginate = 6
+copyright = "Copyright © 2023 Jikky"
 
 
 [params]
@@ -17,9 +19,9 @@ paginate = 6
   # Default to true
   enableFootnotes = true
 
-  siteName = "Hugo Tania is Amazing"
-  siteDesc = "Hugo is Absurdly Fast!"
-  author = "Hugo Tania"
+  siteName = "Jikky's Blog"
+  siteDesc = "Jikkyのブログです。競プロや日常とかの記事を載せてます。"
+  author = "Jikky"
 
   # [params.colorScheme]
   #   # Enable toggle colorScheme
@@ -36,6 +38,7 @@ paginate = 6
   # Show your social information with icon on index bio with `_index.md` content.
   [params.socialOptions]
     dev-to = ""
+    discord = "https://discord.com/invite/scratch-jp-888638910589206569"
     email = ""
     facebook = ""
     github = "https://github.com/Jikky1618"
@@ -59,12 +62,12 @@ paginate = 6
 [[menu.header]]
   name = "Articles"
   url = "/articles/"
+[[menu.header]]
+  name = "Contact"
+  url = "/contact/"
 [[menu.footer]]
-    name = "RSS"
-    url = "/index.xml"
-[[menu.footer]]
-    name = "Github"
-    url = "https://github.com/Jikky1618/Hugo-Blog"
+  name = "RSS"
+  url = "/index.xml"
 
 [markup]
 [markup.highlight]
