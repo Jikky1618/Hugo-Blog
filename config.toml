@@ -1,4 +1,4 @@
 theme = "hugo-tania"
-baseURL = 'http://example.org/'
+baseURL = 'https://jikky1618.github.io/Hugo-Blog/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
