@@ -23,13 +23,13 @@ copyright = "Copyright © 2023 Jikky"
   siteDesc = "Jikkyのブログです。競プロや日常とかの記事を載せてます。"
   author = "Jikky"
 
-  # [params.colorScheme]
-  #   # Enable toggle colorScheme
-  #   # Default to true
-  #   toggle = true
-  #   # Default colorScheme
-  #   # Default to auto
-  #   default = auto
+ [params.colorScheme]
+   # Enable toggle colorScheme
+   # Default to true
+   toggle = true
+   # Default colorScheme
+   # Default to auto
+  # default = dark
 
   # Limit how many categories filter show above search input.
   # Default to 5
@@ -65,9 +65,6 @@ copyright = "Copyright © 2023 Jikky"
 [[menu.header]]
   name = "Articles"
   url = "/articles/"
-[[menu.header]]
-  name = "Posts"
-  url = "/post/"
 [[menu.footer]]
   name = "RSS"
   url = "/index.xml"
