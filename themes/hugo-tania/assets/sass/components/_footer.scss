@@ -37,6 +37,11 @@
             background: none;
         }
     }
+
+    // custom copyright
+    div {
+        color: var(--light-font-color);
+    }
 }
 
 .footer-links {
