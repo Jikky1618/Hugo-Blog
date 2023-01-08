@@ -6,7 +6,7 @@ defaultContentLanguage = 'ja'
 HasCJKLanguage = true
 title = "Jikky's Blog"
 paginate = 6
-copyright = "Copyright © 2023 Jikky"
+copyright = "© 2023 Jikky"
 
 
 [params]
