@@ -1,5 +1,5 @@
 theme = "hugo-tania"
-baseURL = 'https://jikky.dev/'
+baseURL = 'https://jikky1618.github.io/jikky.dev/'
 publishDir = "docs"
 canonifyurls = true
 languageCode = 'ja'
