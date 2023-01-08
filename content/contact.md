@@ -8,6 +8,8 @@ description: "How to contact me"
 - Twitter: [@Jikky1618](https://twitter.com/Jikky1618)
 - AtCoder: [Jikky1618](https://atcoder.jp/users/Jikky1618)
 - Scratch: [@-Jikky-](https://scratch.mit.edu/users/-Jikky-/)
+  - 今は競プロに熱中しすぎて、あんまり活動していません。
 - note: [じっきー](https://note.com/jikky1618)
+  - 色変記事などはこちらに投稿する予定です。
 - Discord: [Jikky#1618](https://discord.com/users/845998854712721408)
   - [Scratch JP](https://discord.gg/scratch-jp-888638910589206569)というScratcherが集まるサーバーを運営しています。
