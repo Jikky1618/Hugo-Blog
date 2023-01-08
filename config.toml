@@ -1,5 +1,5 @@
 theme = "hugo-tania"
-baseURL = 'https://Jikky1618.github.io/Hugo-Blog/'
+baseURL = 'https://jikky.dev/'
 canonifyurls = true
 languageCode = 'ja'
 defaultContentLanguage = 'ja'
