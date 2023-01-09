@@ -7,4 +7,4 @@ description: Top page
 {{< figure src="_index.png" width="150px" >}}
 こんにちは！じっきーです！
 <br>
-17y/o National Institute of Technology.
+17y/o. Student of National Institute of Technology.
