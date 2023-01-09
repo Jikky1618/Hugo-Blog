@@ -3,6 +3,7 @@ title: Footnote test
 categories:
 - syntax
 date: 2021-05-31
+draft: true
 ---
 
 Lorem ipsum dolor sit amet[^1] consectetur adipisicing elit. Nemo tempora eum cumque neque voluptatum, odit ipsum consequatur animi.
