@@ -38,6 +38,7 @@ copyright = "© 2023 Jikky"
 
   # Show your social information with icon on index bio with `_index.md` content.
   [params.socialOptions]
+    buymeacoffee = "https://www.buymeacoffee.com/jikky"
     dev-to = ""
     discord = "https://discord.com/invite/scratch-jp-888638910589206569"
     email = ""
@@ -69,6 +70,13 @@ copyright = "© 2023 Jikky"
 [[menu.footer]]
   name = "RSS"
   url = "/index.xml"
+[[menu.footer]]
+  name = "sitemap"
+  url = "/sitemap.xml"
+[[menu.footer]]
+  name = "test"
+  url = "/sitemap.xml"
+
 
 [markup]
 [markup.highlight]
