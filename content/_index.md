@@ -1,5 +1,5 @@
 ---
-title: Top page
+title: Top
 date: 2023-01-09
 description: Top page
 ---
