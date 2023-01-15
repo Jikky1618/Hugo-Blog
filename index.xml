@@ -54,7 +54,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;li>$2$ を選ぶ or $2$ を選ばない&lt;/li>
 &lt;/ul>
 &lt;p>の選択肢が存在します。&lt;br>
-つまり、数字を &lt;strong>「選ぶ」「選ばない」&lt;/strong> の2通りの選択肢が3つあるので、 $2^3 = 8$ 通りを列挙すれば良いことになります。&lt;/p>
+つまり、数字を &lt;strong>「選ぶ」「選ばない」&lt;/strong> の2通りの選択肢が3つあります。よって、&lt;strong>3個の整数の中からいくつか選ぶ方法は $2^3 = 8$ 通り&lt;/strong>存在し、それを列挙すれば良いことになります。&lt;/p>
 &lt;p>よって、以下のような3重のforループを書くことで全て列挙することができ、この問題を解くことができます。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -126,18 +126,16 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 結局、bit全探索はなんなのか
 &lt;/h2>
-&lt;p>例題1はforループで全探索しましたが、実はbit全探索の場合でも全く同じ方針で全探索をすることができます。bit全探索が使える条件は&lt;/p>
+&lt;p>例題1では「3個の整数」から「選ぶ」「選ばない」の &lt;strong>2通りある選択肢の選び方&lt;/strong> の全列挙をforループで行いましたが、実はbit全探索の場合でも同じ方針で全探索をすることができます。&lt;br>
+一般に、bit全探索は&lt;/p>
 &lt;ul>
-&lt;li>複数あるものから &lt;strong>「選ぶ」「選ばない」&lt;/strong> などの &lt;strong>2通りある選択肢の選び方がある場合&lt;/strong>、あり得る選び方を全探索しなければならない問題&lt;/li>
+&lt;li>複数あるものから &lt;strong>「選ぶ」「選ばない」&lt;/strong> などの &lt;strong>2通りある選択肢の選び方がある場合&lt;/strong>、あり得る選び方を全列挙する&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;/ul>
-&lt;p>に使うことができます！&lt;/p>
-&lt;p>例題1では「3個の整数」から「選ぶ」「選ばない」の &lt;strong>2通りある選択肢の選び方&lt;/strong> を全列挙しましたが、より一般的には &lt;strong>複数あるものの各々について「選ぶ・選ばない」の組み合わせを全列挙する&lt;/strong> ことができます。&lt;/p>
-&lt;p>また、&lt;strong>一般に $N$ 個のものからいくつか選ぶ方法は $2^N$ 通りあります。&lt;/strong>&lt;br>
-ですので、先程の条件を言い換えると&lt;/p>
+&lt;p>ことができます！また、&lt;strong>$N$ 個のものから「いくつか選ぶ方法」は $2^N$ 通り&lt;/strong> あるので、言い換えると&lt;/p>
 &lt;ul>
-&lt;li>$2^N$ 通りある「いくつか選ぶ方法」を全探索しなければならない問題&lt;/li>
+&lt;li>&lt;strong>$2^N$ 通り存在する $N$ 個のものから「いくつか選ぶ方法」を全列挙する&lt;/strong>&lt;/li>
 &lt;/ul>
-&lt;p>に使うことができます。&lt;br>
+&lt;p>ことができるということになります。&lt;br>
 結局のところ、bit全探索の正体は &lt;strong>&amp;ldquo;全探索&amp;quot;と名前についてある通り、全探索を行うだけ&lt;/strong> のとってもシンプルなアルゴリズムなのです！！！&lt;/p>
 &lt;h3 id="forループでは解けない問題">
 &lt;a href="#for%e3%83%ab%e3%83%bc%e3%83%97%e3%81%a7%e3%81%af%e8%a7%a3%e3%81%91%e3%81%aa%e3%81%84%e5%95%8f%e9%a1%8c" class="anchor">
@@ -297,7 +295,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;p>「いくつか選ぶ方法」を整数値に対応させましたが、このままだとその整数が「どう選ぶことを意味しているのか」が分からないので、先程と逆のことを行い復元します。つまり、&lt;/p>
 &lt;ul>
 &lt;li>整数値 $0,1,2,&amp;hellip;,2^N-1$ を再び2進数で表す&lt;/li>
-&lt;li>2進数で表される「いくつか選ぶ方法」において、 $1 \leq i \leq N$ を満たす $i$ について、「 $i$ 番目のものを選んだかどうか」を判定する&lt;/li>
+&lt;li>$1 \leq i \leq N$ を満たす $i$ について、2進数で表される「いくつか選ぶ方法」から「 $i$ 番目のものを選んだかどうか」を判定する&lt;/li>
 &lt;/ul>
 &lt;p>ことを行います。以下の部分は整数値から「いくつか選ぶ方法」を復元しているのです。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -353,15 +351,15 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/table>
 &lt;p>&lt;code>(bit &amp;gt;&amp;gt; i)&lt;/code>は2進数の $\text{bit}$ を $i$ 桁右シフトした値であり、これと $1$ をAND演算で判定をすることで&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>$ \text{bit}$ の $i$ 桁目の値が1のとき、True&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>$ \text{bit}$ の $i$ 桁目の値が0のとき、False&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>$\text{bit}$ の $i$ 桁目の値が1のとき、True&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>$\text{bit}$ の $i$ 桁目の値が0のとき、False&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;p>となります。実際は $1$ とAND演算することにより最下位bitを残して全て0にできるので、&lt;/p>
 &lt;ul>
-&lt;li>$ \text{bit}$ の $i$ 桁右シフトした値の最下位bitが1なら、True (最下位bit以外の全ての桁は0)&lt;/li>
-&lt;li>$ \text{bit}$ の $i$ 桁右シフトした値の最下位bitが0なら、False (全ての桁は0)&lt;/li>
+&lt;li>$\text{bit}$ の $i$ 桁右シフトした値の最下位bitが1なら、True (最下位bit以外の全ての桁は0)&lt;/li>
+&lt;li>$\text{bit}$ の $i$ 桁右シフトした値の最下位bitが0なら、False (全ての桁は0)&lt;/li>
 &lt;/ul>
-&lt;p>と判定していることになります。&lt;/p>
+&lt;p>を判定していることになります。&lt;/p>
 &lt;p>よって、「いくつか選ぶ方法」を復元するためには、以下のように先程の判定をforループで全てのものに対して行えば良いです。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -389,7 +387,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 実装
 &lt;/h2>
-&lt;p>長くなりましたが、例題をbit全探索で実装すると以下の通りになります！&lt;/p>
+&lt;p>長くなりましたが、例題2をbit全探索で実装すると以下の通りになります！&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -415,14 +413,25 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/span>&lt;span class="lnt">21
 &lt;/span>&lt;span class="lnt">22
 &lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// N: 何個のものについて考えているか
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// bit: 選び方の集合を表す整数値
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">N&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 3つの整数についてなので N = 3
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 2^N通りの選び方を 0,1,2,...,2^N-1 の整数値に対応させ、全探索
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">bit&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">bit&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">N&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="n">bit&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">){&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;bits/stdc++.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="k">using&lt;/span> &lt;span class="k">namespace&lt;/span> &lt;span class="n">std&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(){&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// N: 何個のものについて考えているか
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="c1">// bit: 選び方の集合を表す整数値
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">N&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cin&lt;/span> &lt;span class="o">&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">N&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 2^N通りの選び方を 0,1,2,...,2^N-1 の整数値に対応させ、全探索
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">bit&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">bit&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">N&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="n">bit&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">){&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 選んだものを管理する配列S
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">vector&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="o">&amp;gt;&lt;/span> &lt;span class="n">S&lt;/span>&lt;span class="p">;&lt;/span>
@@ -439,6 +448,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">bit&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;: &amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">auto&lt;/span>&lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nl">v&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">S&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">v&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
@@ -451,18 +461,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 6: 1 2
 7: 0 1 2
 &lt;/code>&lt;/pre>&lt;ul>
-&lt;li>
-&lt;p>&lt;code>if((bit &amp;gt;&amp;gt; i) &amp;amp; 1)&lt;/code>は&lt;code>if(bit &amp;amp; (1 &amp;lt;&amp;lt; i))&lt;/code>と書くこともできますが、本質は同じです。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>実際の問題では配列Sを作成することはほとんどありませんが、その代わりに&lt;/p>
-&lt;ul>
-&lt;li>各 $i = 0, 1,\dots ,N-1$ に対して&lt;/li>
-&lt;li>$i$ が2進数で表される「いくつか選ぶ方法」に含まれていることが分かったら&lt;/li>
-&lt;li>それに応じた処理をその場で行う&lt;/li>
-&lt;/ul>
-&lt;p>という場合がほとんどです。&lt;/p>
-&lt;/li>
+&lt;li>&lt;code>if((bit &amp;gt;&amp;gt; i) &amp;amp; 1)&lt;/code>は&lt;code>if(bit &amp;amp; (1 &amp;lt;&amp;lt; i))&lt;/code>と書くこともできますが、本質は同じです。&lt;/li>
 &lt;/ul>
 &lt;p>また、他にも2進数のbitに対して頻出な判定の書き方は以下の通りです。&lt;/p>
 &lt;table>
@@ -498,8 +497,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 計算量について
 &lt;/h5>
 &lt;p>この先、アルゴリズムを学んでいく上で避けては通れないのは &lt;strong>計算量&lt;/strong> の存在です。(計算量については今回は説明を省略します。)&lt;/p>
-&lt;p>「いくつか選ぶ方法」というのは $2^N$ 通りありますが、すなわち $N$ の値が大きくなると「いくつか選ぶ方法」の数も爆発的に増加するということになります。具体的な処理にもよりますが、 &lt;strong>bit全探索が行えるのは $N \leq 20$ くらいの小さい $N$ が限界です。&lt;/strong> &lt;br>
-計算量だと $O(N 2^N)$ となります。&lt;/p>
+&lt;p>「いくつか選ぶ方法」というのは $2^N$ 通りありますが、これは指数的に増加します。すなわち $N$ の値が大きくなると「いくつか選ぶ方法」の数も爆発的に増加するということになります。具体的な処理にもよりますが、 &lt;strong>bit全探索が行えるのは $N \leq 20$ くらいの小さい値が限界です。&lt;/strong> 計算量だと $O(N 2^N)$ となります。&lt;/p>
 &lt;h2 id="実践問題">
 &lt;a href="#%e5%ae%9f%e8%b7%b5%e5%95%8f%e9%a1%8c" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -602,12 +600,17 @@ $N$ 個の整数の中からいくつかの整数を選ぶ方法は $2^N$ 通り
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>先程の実装では、数字の「いくつか選ぶ方法」の配列Sを作成していましたが、&lt;/p>
+&lt;/div>&lt;p>先程の実装では、数字の「いくつか選ぶ方法」の配列Sを作成していましたが、実際の問題では配列Sを作成することはほとんどありません。その代わりに&lt;/p>
 &lt;ul>
-&lt;li>$i$ 番目のものを選んだかどうか」を判定する&lt;/li>
-&lt;li>選んだなら変数&lt;code>sum&lt;/code>に足す(処理を行う)&lt;/li>
+&lt;li>$0 \leq i &amp;lt; N$ を満たす $i$ について、 $i$ 番目のものが $\text{bit}$ に含まれているなら、&lt;/li>
+&lt;li>それに応じた処理をその場で行う&lt;/li>
 &lt;/ul>
-&lt;p>を同時に行う実装をするのが自然です。&lt;/p>
+&lt;p>場合がほとんどです。今回の部分和問題では&lt;/p>
+&lt;ul>
+&lt;li>$i$ 番目のものを選んだかどうかを判定する&lt;/li>
+&lt;li>選んだなら変数&lt;code>sum&lt;/code>に足す&lt;/li>
+&lt;/ul>
+&lt;p>を同時に行う実装をしています。&lt;/p>
 &lt;h2 id="練習問題">
 &lt;a href="#%e7%b7%b4%e7%bf%92%e5%95%8f%e9%a1%8c" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -634,4 +637,12 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;li>&lt;a href="https://drken1215.hatenablog.com/entry/2019/12/14/171657">&lt;strong>bit 全探索 - けんちょんの競プロ精進記録&lt;/strong>&lt;/a>&lt;/li>
 &lt;li>&lt;strong>&lt;a href="https://algo-logic.info/rec-bit-search/">ビット全探索（ 2^n 通りの全探索） | アルゴリズムロジック&lt;/a>&lt;/strong>&lt;/li>
 &lt;li>&lt;strong>&lt;a href="https://qiita.com/u2dayo/items/68e35815659b1041c3c2">こわくないbit全探索1 入門編: bit全探索ってなに？【競プロ解説】 - Qiita&lt;/a>&lt;/strong>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>$N$ 個の要素を持つ集合 $\{0, 1, 2, \dots, N-1\}$ の部分集合を全列挙することと同じ意味です。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>
