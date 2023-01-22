@@ -63,19 +63,16 @@ copyright = "© 2023 Jikky"
 [menu]
 [[menu.header]]
   name = "Contact"
-  url = "/contact/"
+  url = "/contact"
 [[menu.header]]
   name = "Articles"
-  url = "/articles/"
-[[menu.footer]]
-  name = "GitHub"
-  url = "https://github.com/Jikky1618/Hugo-Blog"
+  url = "/articles"
+[[menu.header]]
+  name = "Tags"
+  url = "/tags"
 [[menu.footer]]
   name = "RSS"
   url = "/index.xml"
-[[menu.footer]]
-  name = "Tags"
-  url = "/tags"
 
 [markup]
 [markup.highlight]
