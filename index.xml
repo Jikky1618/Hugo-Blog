@@ -2,32 +2,32 @@
 &lt;p>競技プログラミングでアルゴリズムを初めて学ぶ人にとって最初の壁となるのがbit全探索だと思います。僕自身、初めて学んだアルゴリズムがbit全探索であり、色々苦労しました。&lt;/p>
 &lt;p>この記事では、そのbit全探索について数学用語のみの簡潔な説明だけではなく、分かりやすく説明したいと思います。&lt;br>
 なお、前提知識として &lt;strong>2進数・10進数の基本知識&lt;/strong> 、 &lt;strong>ビットの基本演算(シフト演算、AND演算)&lt;/strong> を理解していると、より理解が深まると思います。&lt;/p>
-&lt;h2 id="はじめに">
-&lt;a href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" class="anchor">
+&lt;h2 id="bit全探索とは">
+&lt;a href="#bit%e5%85%a8%e6%8e%a2%e7%b4%a2%e3%81%a8%e3%81%af" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
 &lt;path fill-rule="evenodd"
 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
 &lt;/path>
 &lt;/svg>
 &lt;/a>
-はじめに
+bit全探索とは
 &lt;/h2>
 &lt;p>まず、bit全探索について一言で説明すると&lt;/p>
 &lt;blockquote>
-&lt;p>&lt;strong>複数あるものから、「いくつか選ぶ方法」を全列挙して探索するアルゴリズム&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>$2^N$ 通りの $N$ 個のものから、いくつか選んだ組合せを全探索するアルゴリズム&lt;/strong>&lt;/p>
 &lt;/blockquote>
-&lt;p>となります。これから2つの例題を通して、bit全探索のイメージをつかんでいきましょう。&lt;/p>
-&lt;h3 id="まずは例題から">
-&lt;a href="#%e3%81%be%e3%81%9a%e3%81%af%e4%be%8b%e9%a1%8c%e3%81%8b%e3%82%89" class="anchor">
+&lt;p>となります。こちらを具体的に見ていきましょう。&lt;/p>
+&lt;h3 id="まずは例から">
+&lt;a href="#%e3%81%be%e3%81%9a%e3%81%af%e4%be%8b%e3%81%8b%e3%82%89" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
 &lt;path fill-rule="evenodd"
 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
 &lt;/path>
 &lt;/svg>
 &lt;/a>
-まずは例題から
+まずは例から
 &lt;/h3>
-&lt;p>手始めに &lt;strong>例題1&lt;/strong> を考えましょう。&lt;/p>
+&lt;p>$N$ の個のものから、いくつか選んだ組合せをいきなり考えるのは難しいので、 $N = 3$ の場合から見ていきます。以下のような例題1を考えましょう。&lt;/p>
 &lt;h5 id="例題1">
 &lt;a href="#%e4%be%8b%e9%a1%8c1" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -42,112 +42,34 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;p>【問題】&lt;br>
 3個の整数 $0,1,2$ が与えられたとき、その中からいくつか選ぶ方法を列挙せよ。&lt;/p>
 &lt;/blockquote>
-&lt;p>分かりやすく表に書き出すと $8$ 通りあることが分かります。&lt;/p>
+&lt;p>頑張って表に書き出すと $8$ 通りあることが分かります。&lt;/p>
 &lt;figure>&lt;img src="image1.png" width="500px"/>
 &lt;/figure>
-&lt;p>この選び方をプログラムでどのように列挙をすれば良いでしょうか。&lt;br>
-この場合、選び方を列挙する単純な方法としてforループを使うことができます。&lt;/p>
-&lt;p>3個の整数 $0,1,2$ について&lt;/p>
+&lt;p>なぜ $8$ 通りなのかを知るために整数がどのように選ばれているのかを考えます。&lt;br>
+3個の整数 $0,1,2$ は&lt;/p>
 &lt;ul>
 &lt;li>$0$ を選ぶ or $0$ を選ばない&lt;/li>
 &lt;li>$1$ を選ぶ or $1$ を選ばない&lt;/li>
 &lt;li>$2$ を選ぶ or $2$ を選ばない&lt;/li>
 &lt;/ul>
 &lt;p>の選択肢が存在します。&lt;br>
-つまり、数字を &lt;strong>「選ぶ」「選ばない」&lt;/strong> の2通りの選択肢が3つあります。よって、&lt;strong>3個の整数の中からいくつか選ぶ方法は $2^3 = 8$ 通り&lt;/strong>存在し、それを列挙すれば良いことになります。&lt;/p>
-&lt;p>よって、以下のような3重のforループを書くことで全て列挙することができ、この問題を解くことができます。&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="n">cnt&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 数字2の「選ばない」「選ぶ」を全探索
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 数字1の「選ばない」「選ぶ」を全探索
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">j&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 数字0の「選ばない」「選ぶ」を全探索
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">k&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">k&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">k&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">vector&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="o">&amp;gt;&lt;/span> &lt;span class="n">S&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 選んだものを管理する配列S
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// もし選んだならSに追加
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">k&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">S&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">push_back&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">j&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">S&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">push_back&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">S&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">push_back&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 配列Sの出力
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">cnt&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;: &amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">auto&lt;/span>&lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nl">s&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">S&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">s&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cnt&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// カウントを1つ増やす
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;pre tabindex="0">&lt;code>1:
-2: 0
-3: 1
-4: 0 1
-5: 2
-6: 0 2
-7: 1 2
-8: 0 1 2
-&lt;/code>&lt;/pre>&lt;h2 id="結局bit全探索はなんなのか">
-&lt;a href="#%e7%b5%90%e5%b1%80bit%e5%85%a8%e6%8e%a2%e7%b4%a2%e3%81%af%e3%81%aa%e3%82%93%e3%81%aa%e3%81%ae%e3%81%8b" class="anchor">
+よって、表に書いた通り, &lt;strong>3個の整数の中からいくつか選ぶ方法は $2^3 = 8$ 通り&lt;/strong>存在します。一般に $N$ 個のものからいくつか選ぶ方法は $2^N$ 通り存在することが知られています。&lt;/p>
+&lt;p>このような&lt;/p>
+&lt;ul>
+&lt;li>複数あるものから &lt;strong>「選ぶ」「選ばない」&lt;/strong> などの &lt;strong>2通りある選択肢の選び方がある場合&lt;/strong>、 $2^N$ 通り存在する選び方を全列挙する&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;/ul>
+&lt;p>みたいな問題を実装するときにbit全探索を使うことで簡潔に実装することができます。&lt;/p>
+&lt;h3 id="forループで解けない問題">
+&lt;a href="#for%e3%83%ab%e3%83%bc%e3%83%97%e3%81%a7%e8%a7%a3%e3%81%91%e3%81%aa%e3%81%84%e5%95%8f%e9%a1%8c" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
 &lt;path fill-rule="evenodd"
 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
 &lt;/path>
 &lt;/svg>
 &lt;/a>
-結局、bit全探索はなんなのか
-&lt;/h2>
-&lt;p>例題1では「3個の整数」から「選ぶ」「選ばない」の &lt;strong>2通りある選択肢の選び方&lt;/strong> の全列挙をforループで行いましたが、実はbit全探索の場合でも同じ方針で全探索をすることができます。&lt;br>
-一般に、bit全探索は&lt;/p>
-&lt;ul>
-&lt;li>複数あるものから &lt;strong>「選ぶ」「選ばない」&lt;/strong> などの &lt;strong>2通りある選択肢の選び方がある場合&lt;/strong>、あり得る選び方を全列挙する&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;/ul>
-&lt;p>ことができます！また、&lt;strong>$N$ 個のものから「いくつか選ぶ方法」は $2^N$ 通り&lt;/strong> あるので、言い換えると&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>$2^N$ 通り存在する $N$ 個のものから「いくつか選ぶ方法」を全列挙する&lt;/strong>&lt;/li>
-&lt;/ul>
-&lt;p>ことができるということになります。&lt;br>
-結局のところ、bit全探索の正体は &lt;strong>&amp;ldquo;全探索&amp;quot;と名前についてある通り、全探索を行うだけ&lt;/strong> のとってもシンプルなアルゴリズムなのです！！！&lt;/p>
-&lt;h3 id="forループでは解けない問題">
-&lt;a href="#for%e3%83%ab%e3%83%bc%e3%83%97%e3%81%a7%e3%81%af%e8%a7%a3%e3%81%91%e3%81%aa%e3%81%84%e5%95%8f%e9%a1%8c" class="anchor">
-&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-&lt;path fill-rule="evenodd"
-d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-&lt;/path>
-&lt;/svg>
-&lt;/a>
-forループでは解けない問題
+forループで解けない問題
 &lt;/h3>
-&lt;p>次にこちらの例題2を考えていきます。&lt;/p>
+&lt;p>続いて、こちらの例題2を考えていきます。&lt;/p>
 &lt;h5 id="例題2">
 &lt;a href="#%e4%be%8b%e9%a1%8c2" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -163,7 +85,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 $N$ 個の整数 $A_1,A_2, \dots,A_N$ が与えられたとき、その中からいくつか選ぶ方法を列挙せよ。&lt;br>【制約】&lt;br>$N \leq 20$&lt;/p>
 &lt;/blockquote>
 &lt;p>例題2は例題1よりも $N$ の制約が緩くなりました。(例題1は $N=3$ の場合です)&lt;br>
-この問題を先程と同じようにforループで解こうとすると、$N$ 重のfor文が必要になります。また、 $N$ の値は変わるのでfor文の数を固定して書くことができません。&lt;/p>
+この問題を愚直にforループで解こうとすると、$N$ 重のfor文が必要になります。また、 $N$ の値は変わるのでfor文の数を固定して書くことができません。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -184,7 +106,7 @@ $N$ 個の整数 $A_1,A_2, \dots,A_N$ が与えられたとき、その中から
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">k&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">k&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">k&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">){&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">l&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">l&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">l&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">){&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">m&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">m&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">m&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// ... これでは解くことができない
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// ... for文の個数が分からない
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
@@ -192,8 +114,7 @@ $N$ 個の整数 $A_1,A_2, \dots,A_N$ が与えられたとき、その中から
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>では、例題2はどのようにして解けば良いのでしょうか。&lt;br>
-先程、bit全探索は &lt;strong>$2^N$ 通りの「いくつか選ぶ方法」を全探索しなければならない問題&lt;/strong> に使うことができると説明しましたが、この $N$ の数が &lt;strong>入力によって変化する場合&lt;/strong> でもbit全探索は使うことができます！&lt;/p>
+&lt;/div>&lt;p>ここで例題2を解くbit全探索を実装していきましょう。&lt;/p>
 &lt;h2 id="bit全探索の実装">
 &lt;a href="#bit%e5%85%a8%e6%8e%a2%e7%b4%a2%e3%81%ae%e5%ae%9f%e8%a3%85" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -204,7 +125,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 bit全探索の実装
 &lt;/h2>
-&lt;p>早速、例題2を解くためのbit全探索を実装していきましょう。基本的な実装方針は以下の通りです。&lt;/p>
+&lt;p>bit全探索の基本的な実装方針は以下の通りです。&lt;/p>
 &lt;blockquote>
 &lt;p>💡 &lt;strong>方針&lt;/strong> &lt;br>&lt;/p>
 &lt;ul>
@@ -387,7 +308,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 実装
 &lt;/h2>
-&lt;p>長くなりましたが、例題2をbit全探索で実装すると以下の通りになります！&lt;/p>
+&lt;p>例題2をbit全探索で実装すると以下の通りになります！&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
