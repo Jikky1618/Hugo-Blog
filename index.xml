@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Top on Jikky's Blog</title><link>https://jikky.dev/</link><description>Recent content in Top on Jikky's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>© 2023 Jikky</copyright><lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jikky.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>bit全探索をココロから理解する</title><link>https://jikky.dev/post/bit-search/</link><pubDate>Mon, 09 Jan 2023 08:36:58 +0900</pubDate><guid>https://jikky.dev/post/bit-search/</guid><description>
 &lt;p>競技プログラミングでアルゴリズムを初めて学ぶ人にとって最初の壁となるのがbit全探索だと思います。僕自身、初めて学んだアルゴリズムがbit全探索であり、色々苦労しました。&lt;/p>
 &lt;p>この記事では、そのbit全探索について数学用語のみの簡潔な説明だけではなく、分かりやすく説明したいと思います。&lt;br>
-なお、前提知識として &lt;strong>2進数・10進数の基本知識&lt;/strong> 、 &lt;strong>ビットの基本演算(シフト演算、AND演算)&lt;/strong> を理解していると、より理解が深まると思います。&lt;/p>
+なお、前提知識として &lt;strong>2進数・10進数の基本知識&lt;/strong> 、 &lt;strong>ビット演算(シフト演算、AND演算)&lt;/strong> を理解していると、より理解が深まると思います。&lt;/p>
 &lt;h2 id="bit全探索とは">
 &lt;a href="#bit%e5%85%a8%e6%8e%a2%e7%b4%a2%e3%81%a8%e3%81%af" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -16,7 +16,7 @@ bit全探索とは
 &lt;blockquote>
 &lt;p>&lt;strong>$2^N$ 通りの $N$ 個のものから、いくつか選んだ組合せを全探索するアルゴリズム&lt;/strong>&lt;/p>
 &lt;/blockquote>
-&lt;p>となります。こちらを具体的に見ていきましょう。&lt;/p>
+&lt;p>となります。これだけ言われてもよくわからないと思うので、例を通して説明していきます。&lt;/p>
 &lt;h3 id="まずは例から">
 &lt;a href="#%e3%81%be%e3%81%9a%e3%81%af%e4%be%8b%e3%81%8b%e3%82%89" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -27,7 +27,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 まずは例から
 &lt;/h3>
-&lt;p>$N$ の個のものから、いくつか選んだ組合せをいきなり考えるのは難しいので、 $N = 3$ の場合から見ていきます。以下のような例題1を考えましょう。&lt;/p>
+&lt;p>$N$ 個のものから、いくつか選んだ組合せをいきなり考えるのは難しいので、 より簡単な例題1を考えましょう。&lt;/p>
 &lt;h5 id="例題1">
 &lt;a href="#%e4%be%8b%e9%a1%8c1" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -52,7 +52,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;li>$1$ を選ぶ or $1$ を選ばない&lt;/li>
 &lt;li>$2$ を選ぶ or $2$ を選ばない&lt;/li>
 &lt;/ul>
-&lt;p>の選択肢が存在します。&lt;br>
+&lt;p>の選択肢が存在します。つまり、1つの整数ごとに選択肢が2通り存在します。&lt;br>
 よって、表に書いた通り, &lt;strong>3個の整数の中からいくつか選ぶ方法は $2^3 = 8$ 通り&lt;/strong>存在します。一般に $N$ 個のものからいくつか選ぶ方法は $2^N$ 通り存在することが知られています。&lt;/p>
 &lt;p>このような&lt;/p>
 &lt;ul>
@@ -298,17 +298,17 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="実装">
-&lt;a href="#%e5%ae%9f%e8%a3%85" class="anchor">
+&lt;/div>&lt;p>以上のことを踏まえて例題2をbit全探索で実装すると以下の通りになります！&lt;/p>
+&lt;h5 id="コード">
+&lt;a href="#%e3%82%b3%e3%83%bc%e3%83%89" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
 &lt;path fill-rule="evenodd"
 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
 &lt;/path>
 &lt;/svg>
 &lt;/a>
-実装
-&lt;/h2>
-&lt;p>例題2をbit全探索で実装すると以下の通りになります！&lt;/p>
+コード
+&lt;/h5>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -373,15 +373,39 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;pre tabindex="0">&lt;code>0:
-1: 0
-2: 1
-3: 0 1
-4: 2
-5: 0 2
-6: 1 2
-7: 0 1 2
-&lt;/code>&lt;/pre>&lt;ul>
+&lt;/div>&lt;h5 id="出力">
+&lt;a href="#%e5%87%ba%e5%8a%9b" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+出力
+&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">0:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1: 0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2: 1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">3: 0 1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">4: 2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">5: 0 2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">6: 1 2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">7: 0 1 2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>&lt;code>if((bit &amp;gt;&amp;gt; i) &amp;amp; 1)&lt;/code>は&lt;code>if(bit &amp;amp; (1 &amp;lt;&amp;lt; i))&lt;/code>と書くこともできますが、本質は同じです。&lt;/li>
 &lt;/ul>
 &lt;p>また、他にも2進数のbitに対して頻出な判定の書き方は以下の通りです。&lt;/p>
@@ -532,6 +556,17 @@ $N$ 個の整数の中からいくつかの整数を選ぶ方法は $2^N$ 通り
 &lt;li>選んだなら変数&lt;code>sum&lt;/code>に足す&lt;/li>
 &lt;/ul>
 &lt;p>を同時に行う実装をしています。&lt;/p>
+&lt;h2 id="さいごに">
+&lt;a href="#%e3%81%95%e3%81%84%e3%81%94%e3%81%ab" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+さいごに
+&lt;/h2>
+&lt;p>初めてで拙い文章になってしまいましたが、この記事で1人でもbit全探索の理解に繋がったのであれば嬉しいです。参考文献の記事も僕自身、学習の参考にさせてもらったものですので、是非そちらの記事も確認してみてください。&lt;/p>
 &lt;h2 id="練習問題">
 &lt;a href="#%e7%b7%b4%e7%bf%92%e5%95%8f%e9%a1%8c" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -542,7 +577,10 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 練習問題
 &lt;/h2>
-&lt;p>bit全探索で解ける問題を置いておきます。 &lt;a href="https://jikky.notion.site/bit-6f60d4392c394b3fa4d49fdeb14c822a">bit全探索例題&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://algo-method.com/courses/5">ビット演算 | アルゴ式&lt;/a>&lt;/strong> : ビットの説明からbit全探索まで全てをカバーしている素晴らしい問題集です。&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://jikky.notion.site/bit-6f60d4392c394b3fa4d49fdeb14c822a">bit全探索例題&lt;/a>&lt;/strong> : bit全探索で解けるAtCoderの問題の簡易的な説明と実装コードです。&lt;/li>
+&lt;/ul>
 &lt;h2 id="参考文献">
 &lt;a href="#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
