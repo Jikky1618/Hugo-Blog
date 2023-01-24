@@ -8,6 +8,9 @@ title = "Jikky's Blog"
 paginate = 6
 copyright = "© 2023 Jikky"
 
+enableGitInfo = true
+[frontmatter]
+  lastmod = ":git"
 
 [params]
   # Emoji will show before the blog title on site navbar.
@@ -62,8 +65,8 @@ copyright = "© 2023 Jikky"
 
 [menu]
 [[menu.header]]
-  name = "Contact"
-  url = "/contact"
+  name = "About"
+  url = "/about"
 [[menu.header]]
   name = "Articles"
   url = "/articles"
