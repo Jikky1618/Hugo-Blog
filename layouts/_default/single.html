@@ -19,9 +19,6 @@
                             <time itemprop="datePublished" datetime="{{ .Date }}">投稿日: {{ .Date.Format "2006-01-02" }}</time>
                             {{ end }}
                         </div>
-                        <div>
-                            {{ .ReadingTime }} minutes
-                        </div>
                         <div class="tags">
                             {{ range (.GetTerms "tags") }}
                             <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
