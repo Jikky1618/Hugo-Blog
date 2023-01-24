@@ -7,6 +7,7 @@ HasCJKLanguage = true
 title = "Jikky's Blog"
 paginate = 6
 copyright = "© 2023 Jikky"
+googleAnalytics = "G-DE6YGS2LJS"
 
 enableGitInfo = true
 [frontmatter]
@@ -24,7 +25,7 @@ enableGitInfo = true
   enableFootnotes = true
 
   siteName = "Jikky's Blog"
-  siteDesc = "Jikkyのブログです。競プロや日常とかの記事を載せてます。"
+  siteDesc = "じっきーのブログ。AtCoderなどの競技プログラミングの記事やアルゴリズムの解説、日々の日常などをまとめています。"
   author = "Jikky"
 
  [params.colorScheme]
