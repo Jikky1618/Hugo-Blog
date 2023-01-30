@@ -34,7 +34,12 @@
     {{ .Content }}
     </div>
 </div>
-
+<section class="section sns_parent">
+    <div class="sns_section">
+        <!-- social buttons -->
+        {{ partial "share" . }}
+    </div>
+</section>
 <div class="container">
     {{ if .Section }}
     <nav class="flex container suggested">
