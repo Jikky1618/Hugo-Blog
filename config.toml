@@ -42,21 +42,22 @@ enableGitInfo = true
 
   # Show your social information with icon on index bio with `_index.md` content.
   [params.socialOptions]
-    buymeacoffee = "https://www.buymeacoffee.com/jikky"
+    4_buymeacoffee = "https://www.buymeacoffee.com/jikky"
     dev-to = ""
-    discord = "https://discord.com/invite/scratch-jp-888638910589206569"
+    3_discord = "https://discord.com/invite/scratch-jp-888638910589206569"
     email = ""
     facebook = ""
-    github = "https://github.com/Jikky1618"
+    2_github = "https://github.com/Jikky1618"
     instagram = ""
     linkedin = ""
     medium = ""
     stack-overflow = ""
     steam = ""
     telegram = ""
-    twitter = "https://twitter.com/Jikky1618"
+    1_twitter = "https://twitter.com/Jikky1618"
     twitch = ""
     whatsapp = ""
+    5_rss = "/index.xml"
     
   
   # Comments settigns
@@ -75,8 +76,8 @@ enableGitInfo = true
   name = "Tags"
   url = "/tags"
 [[menu.footer]]
-  name = "RSS"
-  url = "/index.xml"
+  name = "Home"
+  url = "../"
 
 [markup]
 [markup.highlight]
