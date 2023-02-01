@@ -4,6 +4,9 @@
 <div class="sns_button facebook">
 <a href="http://www.facebook.com/sharer.php?u={{ .Permalink }}&t={{ .Title }}" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
 </div>
+<div class="sns_button line">
+    <a href="https://line.me/R/msg/text/?{{ .Title }}%0D%0A{{.Permalink }}" target="_blank" title="line"><i class="fab fa-line"></i></a>
+</div>
 <div class="sns_button hatena">
 <a href="http://b.hatena.ne.jp/add?mode=confirm&url={{ .Permalink }}&title={{ .Title }}" target="_blank" title="hatena"><i class="fa fa-hatena"></i></a>
 </div>
