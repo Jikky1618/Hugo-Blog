@@ -4,7 +4,7 @@ canonifyurls = true
 languageCode = 'ja'
 defaultContentLanguage = 'ja'
 HasCJKLanguage = true
-title = "Jikky's Blog"
+title = "じきおの部屋"
 paginate = 6
 copyright = "© 2023 Jikky"
 googleAnalytics = "G-DE6YGS2LJS"
@@ -24,8 +24,8 @@ enableGitInfo = true
   # Default to true
   enableFootnotes = true
 
-  siteName = "Jikky's Blog"
-  siteDesc = "じっきーのブログ。AtCoderなどの競技プログラミングの記事やアルゴリズムの解説、日々の日常などをまとめています。"
+  siteName = "じきおの部屋"
+  siteDesc = "じっきーのブログです。AtCoderなどの競技プログラミングの記事やアルゴリズムの解説、個人的な日々の日常などをまとめています。"
   author = "Jikky"
 
  [params.colorScheme]
