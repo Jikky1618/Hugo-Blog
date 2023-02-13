@@ -592,8 +592,8 @@ ABC289 C - Coverage
 &lt;p>&lt;a href="https://atcoder.jp/contests/abc289/tasks/abc289_c">https://atcoder.jp/contests/abc289/tasks/abc289_c&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>【問題】&lt;br>
-$1$ 以上 $N$ 以下の整数からなる集合が $M$ 個あり、 $S_1, S_2, \dots ,S_{N}$ と呼びます。&lt;br>
-$S_i$ は $C_i$ の整数 $a_{i, 1}, a_{i, 2}, \dots ,a_{i, C_i}$ からなります。&lt;br>&lt;br>
+$1$ 以上 $N$ 以下の整数からなる集合が $M$ 個あり、 $S_1, S_2, \dots ,S_{M}$ と呼びます。&lt;br>
+$S_i$ は $C_i$ 個の整数 $a_{i, 1}, a_{i, 2}, \dots ,a_{i, C_i}$ からなります。&lt;br>&lt;br>
 $M$ 個の集合から $1$ 個以上の集合を選ぶ方法は $2^M - 1$ 通りあります。&lt;br>
 このうち、次の条件を満たす選び方は何通りありますか？&lt;/p>
 &lt;ul>
@@ -604,7 +604,7 @@ $M$ 個の集合から $1$ 個以上の集合を選ぶ方法は $2^M - 1$ 通り
 &lt;li>$1\leq N\leq 10$&lt;/li>
 &lt;li>$1\leq M\leq 10$&lt;/li>
 &lt;li>$1\leq C_i\leq N$&lt;/li>
-&lt;li>$1\leq A_{i, 1}\leq A_{i, 2}\leq\dots\leq A_{i, C_i}\leq N$&lt;/li>
+&lt;li>$1\leq A_{i, 1}&amp;lt; A_{i, 2}&amp;lt;\dots&amp;lt; A_{i, C_i}\leq N$&lt;/li>
 &lt;/ul>
 &lt;/blockquote>
 &lt;p>つい最近のABCで出たC問題ですが、まさかbit全探索が灰diffになるとは。。。と思いました。&lt;/p>
