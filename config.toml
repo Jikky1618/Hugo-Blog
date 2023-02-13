@@ -25,7 +25,7 @@ enableGitInfo = true
   enableFootnotes = true
 
   siteName = "じきおの部屋"
-  siteDesc = "じっきーのブログです。AtCoderなどの競技プログラミングの記事やアルゴリズムの解説、個人的な日々の日常などをまとめています。"
+  siteDesc = "じっきーのブログです。AtCoderなどの競技プログラミングの記事やアルゴリズムの解説、日々の日常などをまとめています。"
   author = "Jikky"
 
  [params.colorScheme]
