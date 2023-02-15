@@ -495,7 +495,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;li>選んだ整数の総和を求めて、その値が $V$ になるのかを判定する&lt;/li>
 &lt;/ul>
 &lt;p>の2ステップでこの問題を解くことができます。&lt;/p>
-&lt;p>※動的計画法(DP)をご存知の方であればこの問題もDPで解けることが分かると思いますが、今回は整数1つ1つの値が非常に大きいので計算量が $O(NV)$ となってしまい実行時間に間に合いません。(また、配列の要素数が最大の場合 $10^9$ を超えるのでMLE(メモリ制限超過)やRE(実行時エラー)が発生します。)&lt;/p>
+&lt;p>※動的計画法(DP)をご存知の方であればこの問題もDPで解けることが分かると思いますが、今回は整数1つ1つの値が非常に大きいので計算量が $O(NV)$ となってしまい実行時間に間に合いません。(また、配列の要素数が最大で $10^9$ を超えるのでMLE(メモリ制限超過)やRE(実行時エラー)が発生します。)&lt;/p>
 &lt;h5 id="実装-1">
 &lt;a href="#%e5%ae%9f%e8%a3%85-1" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -568,7 +568,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>先程の実装では、数字の「いくつか選ぶ方法」の配列Sを作成していましたが、実際の問題では配列Sを作成することはほとんどありません。その代わりに&lt;/p>
+&lt;/div>&lt;p>例題2の実装では、数字の「いくつか選ぶ方法」の配列Sを作成していましたが、実際の問題では配列Sを作成することはほとんどありません。その代わりに&lt;/p>
 &lt;ul>
 &lt;li>$0 \leq i &amp;lt; N$ を満たす $i$ について、 $i$ 番目のものが $\text{bit}$ に含まれているなら、&lt;/li>
 &lt;li>それに応じた処理をその場で行う&lt;/li>
@@ -631,7 +631,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;li>選んだ集合に含まれている整数を全て1つの &lt;code>set&lt;/code> に挿入する&lt;/li>
 &lt;li>挿入した後、 &lt;code>set&lt;/code> に $1, 2, \dots ,x$ が存在するかを判定する $\Leftrightarrow$ &lt;strong>&lt;code>set&lt;/code> の要素数が $x$ 個かどうかを判定する&lt;/strong>&lt;/li>
 &lt;/ul>
-&lt;p>ことで条件の判定を行うことができます！( &lt;code>set&lt;/code> についてはAPG4bの&lt;a href="https://atcoder.jp/contests/apg4b/tasks/APG4b_aa">AA - 3.03.STLのコンテナ&lt;/a>内の細かい話欄を見てください。)&lt;/p>
+&lt;p>ことで条件の判定を行うことができます！( &lt;code>set&lt;/code> についての詳細はAPG4bの&lt;a href="https://atcoder.jp/contests/apg4b/tasks/APG4b_aa">AA - 3.03.STLのコンテナ&lt;/a>内の細かい話欄を見てください。)&lt;/p>
 &lt;p>以上よりこの問題は&lt;/p>
 &lt;ul>
 &lt;li>bit全探索で $M$ 個の集合から $1$ 個以上の集合を選ぶ方法を全探索する&lt;/li>
