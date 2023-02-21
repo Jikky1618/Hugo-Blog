@@ -151,7 +151,11 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;li>&lt;strong>$i$ 番目のものを選ぶなら、2進数の $i$ 桁目を1にする&lt;/strong>&lt;/li>
 &lt;li>&lt;strong>$i$ 番目のものを選ばないなら、2進数の $i$ 桁目を0にする&lt;/strong>&lt;/li>
 &lt;/ul>
-&lt;p>だけで「いくつか選ぶ方法」を2進数で表すことができるのです！&lt;/p>
+&lt;p>だけで「いくつか選ぶ方法」を2進数で表すことができるのです。&lt;/p>
+&lt;p>この話を具体的に図で表すと以下のようになります。&lt;/p>
+&lt;figure>&lt;img src="image2.png"/>
+&lt;/figure>
+&lt;p>見てわかる通り、選んだものに対応して2進数の桁が1になっています。&lt;/p>
 &lt;h3 id="2進数10進数の整数値に変換する">
 &lt;a href="#2%e9%80%b2%e6%95%b010%e9%80%b2%e6%95%b0%e3%81%ae%e6%95%b4%e6%95%b0%e5%80%a4%e3%81%ab%e5%a4%89%e6%8f%9b%e3%81%99%e3%82%8b" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -164,7 +168,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/h3>
 &lt;p>次に、選ぶ方法を表した2進数を10進数へと変換させ、整数値にします。&lt;br>
 0,1,2の8通りの選び方について、2進数と10進数の整数値ではこのように表すことができます。&lt;/p>
-&lt;figure>&lt;img src="image2.png"/>
+&lt;figure>&lt;img src="image3.png"/>
 &lt;/figure>
 &lt;h3 id="bit全探索するためのfor文">
 &lt;a href="#bit%e5%85%a8%e6%8e%a2%e7%b4%a2%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%aefor%e6%96%87" class="anchor">
