@@ -485,8 +485,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 解法
 &lt;/h5>
-&lt;p>まず初めに制約を確認しましょう。&lt;br>
-ここで分かる大事なことは&lt;/p>
+&lt;p>まず初めに制約を確認しましょう。ここで分かる大事なことは&lt;/p>
 &lt;ul>
 &lt;li>$N \leq 16$ と &lt;strong>$N$ が非常に小さいこと&lt;/strong>&lt;/li>
 &lt;li>$A_i \leq 10^8$ と &lt;strong>整数1つ1つの値が大きいこと&lt;/strong>&lt;/li>
@@ -494,7 +493,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;p>です。&lt;/p>
 &lt;p>ここで &lt;strong>$N$ が非常に小さいことに注目します&lt;/strong>。このような&lt;strong>非常に小さい制約が与えられたとき、全探索解法がないかを検討する&lt;/strong>のは典型考察です。&lt;/p>
 &lt;p>するとこの問題は「いくつかの整数を選ぶ方法」さえ全列挙できれば解くことができます。 $N$ 個の整数の中からいくつかの整数を選ぶ方法は $2^N$ 通りありますが $N \leq 16$ なので多くても $2^{16} = 65536$ 通りしかないです。&lt;/p>
-&lt;p>よって、この問題は整数の選び方を表した整数値 $0,1,2,&amp;hellip;,2^M-1$ をbit全探索することで時間に余裕を持って求めることができます。実装については&lt;/p>
+&lt;p>よって、この問題は整数の選び方を表した整数値 $0,1,2,&amp;hellip;,2^N-1$ をbit全探索することで時間に余裕を持って求めることができます。実装については&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="#bit%E5%85%A8%E6%8E%A2%E7%B4%A2%E3%81%AE%E5%AE%9F%E8%A3%85">bit全探索の実装の方針&lt;/a>のように、bit全探索でいくつかの整数を選ぶ方法を全探索する&lt;/li>
 &lt;li>選んだ整数の総和を求めて、その値が $V$ になるのかを判定する&lt;/li>
@@ -637,7 +636,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;li>選んだ集合に含まれている整数を全て &lt;code>set&lt;/code> に挿入する&lt;/li>
 &lt;li>挿入した後、 &lt;code>set&lt;/code> に $1, 2, \dots ,x$ が存在するかを判定する $\Leftrightarrow$ &lt;strong>&lt;code>set&lt;/code> の要素数が $x$ 個かどうかを判定する&lt;/strong>&lt;/li>
 &lt;/ul>
-&lt;p>ことで条件の判定を行うことができます！( &lt;code>set&lt;/code> についての詳細はAPG4bの&lt;a href="https://atcoder.jp/contests/apg4b/tasks/APG4b_aa">AA - 3.03.STLのコンテナ&lt;/a>内の細かい話欄を見てください。)&lt;/p>
+&lt;p>ことで条件の判定を行うことができます。 &lt;code>set&lt;/code> はC問題以降で頻出なデータ構造になっていますので、この機会に是非覚えておきましょう。( &lt;code>set&lt;/code> についての詳細はAPG4bの&lt;a href="https://atcoder.jp/contests/apg4b/tasks/APG4b_aa">AA - 3.03.STLのコンテナ&lt;/a>内の細かい話欄を見てください。)&lt;/p>
 &lt;p>以上よりこの問題は&lt;/p>
 &lt;ul>
 &lt;li>bit全探索で $M$ 個の集合から $1$ 個以上の集合を選ぶ方法を全探索する&lt;/li>
