@@ -9,6 +9,8 @@ tags:
 categories:
 - 競技プログラミング
 katex: true
+toc: true
+thumbnailImage: https://jikky.dev/post/bit-search/image1.png
 ---
 
 bit全探索は競プロで探索アルゴリズムを初めて学ぶ人にとって最初の壁となると思います。僕自身も初めて学んだのがbit全探索であり、学ぶ際に色々苦労しました。
