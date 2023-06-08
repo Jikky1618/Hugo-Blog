@@ -29,7 +29,11 @@
             </div>
         </header>
     </article>
-
+    <!-- 目次を追加 -->
+    <blockquote>
+        <h3>目次</h3>
+        {{ .TableOfContents }}
+    </blockquote>
     <div class="article-post">
     {{ .Content }}
     </div>
