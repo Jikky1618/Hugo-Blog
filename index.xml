@@ -51,7 +51,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;p>【問題】&lt;br> $3$ 個の整数 $0,1,2$ が与えられたとき、その中からいくつか選ぶ方法を列挙せよ。&lt;/p>
 &lt;/blockquote>
 &lt;p>表に書き出すと $8$ 通りあることが分かります。&lt;/p>
-&lt;figure>&lt;img src="image1.png" width="500px"/>
+&lt;figure>&lt;img src="image1.png" width="600px"/>
 &lt;/figure>
 &lt;p>なぜ $8$ 通りなのかを知るために整数がどのように選ばれているのかを考えます。&lt;br>
 3 個の整数 $0,1,2$ は&lt;/p>
@@ -151,7 +151,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;li>&lt;strong>$i$ 番目のものを選ばないなら、2 進数の右から $i$ 桁目を「0」にする&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;p>言うなれば、選ぶなら「0」、選ばないなら「1」と 2 進数で表現するということなのですが、これを例題 1 の $8$ 通りの選び方について、具体的に図で表すとこのようになります。&lt;/p>
-&lt;figure>&lt;img src="image2.png"/>
+&lt;figure>&lt;img src="image2.png" width="600px"/>
 &lt;/figure>
 &lt;p>例えば、3 個の整数 $0,1,2$ に対して $1,2$ を選ぶ方法 $\{1,2\}$ は&lt;/p>
 &lt;ul>
@@ -172,7 +172,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/h3>
 &lt;p>次に、選ぶ方法を表した 2 進数を 10 進数へと変換します。&lt;br>
 例題 1 の $8$ 通りの選び方について、2 進数と 10 進数ではこのように表すことができます。&lt;/p>
-&lt;figure>&lt;img src="image3.png" width="500px"/>
+&lt;figure>&lt;img src="image3.png" width="600px"/>
 &lt;/figure>
 &lt;h3 id="bit-全探索するための-for-文">
 &lt;a href="#bit-%e5%85%a8%e6%8e%a2%e7%b4%a2%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae-for-%e6%96%87" class="anchor">
@@ -799,10 +799,10 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/ul>
 &lt;p>とそれぞれ $A$ に操作を行うと以下のように状態が変化します。&lt;/p>
 &lt;p>&lt;strong>2 列目(元の行列の 2 列目)を削除 → 3 行目(元の行列の 3 行目)を削除 → 1 行目(元の行列の 1 行目)を削除 → 4 列目(元の行列の 5 列目)を削除した場合&lt;/strong>&lt;/p>
-&lt;figure>&lt;img src="image4.png" width="800px"/>
+&lt;figure>&lt;img src="image4.png" width="600px"/>
 &lt;/figure>
 &lt;p>&lt;strong>1 行目、3 行目、2 列目、5 列目を同時に削除した場合&lt;/strong>&lt;/p>
-&lt;figure>&lt;img src="image5.png" width="800px"/>
+&lt;figure>&lt;img src="image5.png" width="600px"/>
 &lt;/figure>
 &lt;p>どちらも最終的な $A$ の状態は同じであることが分かります。&lt;/p>
 &lt;p>さて、&lt;/p>
@@ -855,7 +855,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// nh と H_2, nw と W_2 が等しいか判定する
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// nh の大きさと H_2, nw の大きさと W_2 が等しいか判定する
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">nh&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">H2&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">nw&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">W2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">continue&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
@@ -916,7 +916,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// nh と H_2, nw と W_2 が等しいか判定する
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// nh の大きさと H_2, nw の大きさと W_2 が等しいか判定する
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">if&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">nh&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">H2&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">nw&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">W2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">continue&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 実際に操作を行った行列 A&amp;#39; を構築する
@@ -1046,7 +1046,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// nh と H_2, nw と W_2 が等しいか判定する
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// nh の大きさと H_2, nw の大きさと W_2 が等しいか判定する
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">nh&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">H2&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">nw&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">W2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">continue&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 実際に操作を行った行列 A&amp;#39; を構築する
